@@ -19,8 +19,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        action: "bg-salmon-100 text-salmon-900 cursor-pointer hover:bg-white active:scale-95 transition-all ease-in duration-100 shadow-sm outline-salmon-350/30 ring-salmon-300/40",
       },
       size: {
+        action: "px-6 py-3",
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",

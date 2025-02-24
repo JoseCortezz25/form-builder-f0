@@ -254,7 +254,7 @@
   --color-stone-800: #282523;
   --color-stone-850: #1d1b1a;
   --color-stone-900: #131110;
-  --color-green-400: #4BA849;
+  --color-green-400: #4ba849;
   --color-blue-250: #cfeaf5;
   --color-blue-300: #b9e3f3;
   --color-blue-450: #0f92c6;
@@ -271,6 +271,8 @@
   --color-acrylic-default-fallback-dark: #1c2437;
   --color-acrylic-thin-fallback-light: #fffdfb;
   --color-acrylic-thin-fallback-dark: #1a1e2d;
+
+  --shadow-chat: rgba(0, 0, 0, 0.18) 0px 10px 24px 0px;
 }
 
 @layer base {
@@ -278,6 +280,27 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-stone-150 text-stone-800;
   }
+}
+
+.inputs-group {
+  @apply flex flex-col gap-2;
+
+  h4 {
+    @apply text-salmon-900 font-bold text-sm;
+  }
+
+  .inputs-group__inputs {
+    @apply flex flex-col gap-2;
+  }
+}
+
+.bg-pattern {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    #4b241430 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
 }
