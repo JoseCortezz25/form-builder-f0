@@ -1,5 +1,6 @@
 "use client";
 
+import { PreviewForm } from "@/components/preview-form";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -64,7 +65,7 @@ const Page = () => {
   return (
     <main>
       <div className="mx-auto flex justify-between gap-[25px]">
-        <section className="w-[30%] p-6 pb-8">
+        <section className="w-[35%] p-6 pb-8">
           <div className="flex flex-col gap-6">
             <div className="inputs-group">
               <h4>Short Text</h4>
@@ -77,14 +78,14 @@ const Page = () => {
                   Single line
                 </Button>
                 <Button
-                  onClick={() => addInput(InputType.Text)}
+                  onClick={() => addInput(InputType.Email)}
                   variant="action"
                   size="action"
                 >
                   Email
                 </Button>
                 <Button
-                  onClick={() => addInput(InputType.Text)}
+                  onClick={() => addInput(InputType.Password)}
                   variant="action"
                   size="action"
                 >
@@ -185,7 +186,8 @@ const Page = () => {
 
           </div>
         </section>
-        <section className="w-full flex justify-between bg-pattern rounded-l-[20px]">
+        <section className="w-full flex justify-between bg-pattern rounded-l-[20px] py-3">
+          <PreviewForm inputs={inputs} />
         </section>
       </div>
     </main>

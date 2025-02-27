@@ -15,13 +15,24 @@ interface FormFieldEditorProps {
   onDelete: () => void
 }
 
-export function FormFieldEditor({ field, onUpdate, onDelete }: FormFieldEditorProps) {
+export function FormFieldEditor({
+  field,
+  onUpdate,
+  onDelete
+}: FormFieldEditorProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log("field", field);
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-[450px] bg-salmon-150 text-salmon-900 py-4 px-6 rounded-lg">
       <div className="flex items-center justify-between">
-        <h3 className="font-medium">{field.type.charAt(0).toUpperCase() + field.type.slice(1)} Field</h3>
-        <Button variant="ghost" size="icon" onClick={onDelete}>
+        <h3 className="font-bold">
+          {field.type.charAt(0).toUpperCase() + field.type.slice(1)} Field
+        </h3>
+        <Button variant="ghost" size="icon"
+        // onClick={onDelete}
+        >
           <Trash2 className="h-4 w-4" />
         </Button>
       </div>
@@ -29,15 +40,18 @@ export function FormFieldEditor({ field, onUpdate, onDelete }: FormFieldEditorPr
       <div className="space-y-4">
         <div className="grid gap-2">
           <Label htmlFor="label">Label</Label>
-          <Input id="label" value={field.label} onChange={(e) => onUpdate({ ...field, label: e.target.value })} />
+          <Input id="label"
+          // value={field.label} 
+          // onChange={(e) => onUpdate({ ...field, label: e.target.value })} 
+          />
         </div>
 
         <div className="grid gap-2">
           <Label htmlFor="placeholder">Placeholder</Label>
           <Input
             id="placeholder"
-            value={field.placeholder}
-            onChange={(e) => onUpdate({ ...field, placeholder: e.target.value })}
+          // value={field.placeholder}
+          // onChange={(e) => onUpdate({ ...field, placeholder: e.target.value })}
           />
         </div>
 
@@ -61,7 +75,7 @@ export function FormFieldEditor({ field, onUpdate, onDelete }: FormFieldEditorPr
           </div>
           {isOpen && (
             <div className="space-y-2 p-4 bg-muted/50 rounded-md">
-              {(field.type === "text" || field.type === "textarea") && (
+              {/* {(field.type === "text" || field.type === "textarea") && (
                 <>
                   <div className="grid gap-2">
                     <Label htmlFor="minLength">Minimum Length</Label>
@@ -104,7 +118,7 @@ export function FormFieldEditor({ field, onUpdate, onDelete }: FormFieldEditorPr
                     id="pattern"
                   />
                 </div>
-              )}
+              )} */}
             </div>
           )}
         </div>

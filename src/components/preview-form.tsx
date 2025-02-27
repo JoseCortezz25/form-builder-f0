@@ -2,12 +2,13 @@ import type { Input as InputForm } from "@/app/builder/page";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Select } from "./ui/select";
+import { FormFieldEditor } from "./form-field-editor";
 
 interface FormProps {
   inputs: InputForm[];
 }
 
-export const Form = ({ inputs }: FormProps) => {
+export const PreviewForm = ({ inputs }: FormProps) => {
 
   const parserInputToElement = (input: InputForm) => {
     switch (input.type) {
@@ -28,12 +29,9 @@ export const Form = ({ inputs }: FormProps) => {
   console.log(inputs);
 
   return (
-    <div>
+    <div className="w-full flex flex-col gap-[24px] justify-start items-center">
       {inputs.length > 0 && inputs.map((input, index) => (
-        <div key={index}>
-          <label>{input.label}</label>
-          {parserInputToElement(input)}
-        </div>
+        <FormFieldEditor key={index} field={input} onUpdate={() => { }} onDelete={() => { }} />
       ))}
     </div>
   );
